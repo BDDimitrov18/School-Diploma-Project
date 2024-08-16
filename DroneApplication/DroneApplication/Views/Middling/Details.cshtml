@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DataAccessLayer.Models.MiddledEventModel>
+
+@{
+    ViewData["Title"] = "Детайли";
+}
+
+<h1>Детайли</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @ViewData["Name"]
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                DroneId
+            </th>
+            <th>
+                FileId
+            </th>
+            <th>
+                Xmid
+            </th>
+            <th>
+                Ymid
+            </th>
+            <th>
+                Zmid
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DroneId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Xmid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ymid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zmid)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

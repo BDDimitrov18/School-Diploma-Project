@@ -1,0 +1,43 @@
+﻿@model DataAccessLayer.Models.DroneModel
+
+@{
+    ViewData["Title"] = "детайли";
+}
+
+<h1>Детайли</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Име на дрона
+            </th>
+            <th>
+                Летателна категория
+            </th>
+            <!--<th>
+            @Html.//DisplayNameFor(model => model.File)
+            </th> -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+                    @Model.Name
+                </td>
+                <td>
+                    @Model.categoryZone
+                </td>
+              
+            </tr>
+        
+        <div>
+            <!--<a asp-action="Edit" asp-route-id="//Model?.Id">Edit</a> |-->
+            <a asp-action="Index" class="btn btn-dark">Обратно към списъка</a>
+        </div>
+    </tbody>
+</table>
+

@@ -1,0 +1,44 @@
+﻿@model DataAccessLayer.Models.ExifFileCategory
+
+@{
+    ViewData["Title"] = "Създаване";
+}
+
+<h1>Създаване</h1>
+
+<h4>Извличане на метаданни</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="droneModel.Name" class="control-label"></label>
+                <input asp-for="droneModel.Name" class="form-control" />
+                <span asp-validation-for="droneModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fileModel.Name" class="control-label"></label>
+                <input asp-for="fileModel.Name" class="form-control" />
+                <span asp-validation-for="fileModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fileCollection" class="control-label"></label>
+                <input asp-for="fileCollection" type="file" class="form-control" multiple/>
+                <span asp-validation-for="fileCollection" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark">Обратно към списъка</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,49 @@
+﻿@model DataAccessLayer.Models.MatchCategory
+
+@{
+    ViewData["Title"] = "Създаване";
+}
+
+<h1>Създаване</h1>
+
+<h4>Файл</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="newFileName" class="control-label"></label>
+                <input asp-for="newFileName" class="form-control" />
+                <span asp-validation-for="newFileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="midFileId" class="control-label">Полет с прецизни координати файл</label>
+                <select class="form-select" asp-items="Model.midFilesList" asp-for="midFileId"></select>
+                <span asp-validation-for="midFileId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="exifFileId" class="control-label">Файл с извлечени метаданни</label>
+                <select class="form-select" asp-items="Model.exifFilesList" asp-for="exifFileId"></select>
+                <span asp-validation-for="exifFileId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="exifFilesList" />
+            <input type="hidden" asp-for="midFilesList" />
+           <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark">Обратно към списъка</a>
+</div>
+
+
+
+@section Scripts {
+    
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

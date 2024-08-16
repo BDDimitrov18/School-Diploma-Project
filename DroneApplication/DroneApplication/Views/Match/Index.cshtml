@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DataAccessLayer.Models.FileModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Свързване на снимки с координати</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Създаване</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Име на файл
+            </th>
+            <!--<th>
+            @Html.//DisplayNameFor(model => model.File)
+            </th> -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <!-- <td>
+                @Html.//DisplayFor(modelItem => item.File)
+                </td> -->
+                <td>
+                    <a asp-action="Edit" class="btn btn-dark" asp-route-id="@item.Id">Променяне</a> |
+                    <a asp-action="Details" class="btn btn-dark" asp-route-id="@item.Id">Детайли</a> |
+                    <a asp-action="Delete" class="btn btn-dark" asp-route-id="@item.Id">Изтриване</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
